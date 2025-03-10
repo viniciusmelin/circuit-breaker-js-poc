@@ -5,5 +5,6 @@ import { TestCircuitBreakerController } from './test-circuit-breaker.controller'
 @Module({
   providers: [TestCircuitBreakerService],
   controllers: [TestCircuitBreakerController],
+  exports: [TestCircuitBreakerService],
 })
 export class TestCircuitBreakerModule {}

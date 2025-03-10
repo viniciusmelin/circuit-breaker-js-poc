@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CircuitBreakerService } from 'src/circuit-breaker/circuit-breaker.service';
+import { CircuitBreakerService } from '../circuit-breaker/circuit-breaker.service';
 
 @Injectable()
 export class TestCircuitBreakerService {

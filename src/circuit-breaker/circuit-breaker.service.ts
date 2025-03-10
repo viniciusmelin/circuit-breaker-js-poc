@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class CircuitBreakerService {
-  private breakers = new Map<string, CircuitBreaker<any, any>>();
+  private readonly breakers = new Map<string, CircuitBreaker<any, any>>();
   private readonly errorThresholdPercentage: number;
   private readonly timeout: number;
   private readonly resetTimeout: number;
@@ -131,9 +131,10 @@ export class CircuitBreakerService {
 
   setStatus(key: string, status: 'open' | 'closed') {
     if (!this.breakers.has(key)) return;
+
     status === 'open'
-      ? this.breakers.get(key)?.open()
-      : this.breakers.get(key)?.close();
+      ? this.breakers.get(key).open()
+      : this.breakers.get(key).close();
     return this.getBreaker(key);
   }
 }

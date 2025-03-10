@@ -1,15 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TestCircuitBreakService } from './test-circuit-breaker.service';
+import { TestCircuitBreakerService } from './test-circuit-breaker.service';
+import { CircuitBreakerModule } from '../circuit-breaker/circuit-breaker.module';
 
 describe('TestCircuitBreakService', () => {
-  let service: TestCircuitBreakService;
+  let service: TestCircuitBreakerService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [TestCircuitBreakService],
+      imports: [CircuitBreakerModule],
+      providers: [TestCircuitBreakerService],
     }).compile();
 
-    service = module.get<TestCircuitBreakService>(TestCircuitBreakService);
+    service = module.get<TestCircuitBreakerService>(TestCircuitBreakerService);
   });
 
   it('should be defined', () => {

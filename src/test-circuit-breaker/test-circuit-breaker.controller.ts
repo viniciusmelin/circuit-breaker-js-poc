@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { TestCircuitBreakerService } from 'src/test-circuit-breaker/test-circuit-breaker.service';
+import { TestCircuitBreakerService } from './test-circuit-breaker.service';
 
 @Controller('test-circuit-breaker')
 export class TestCircuitBreakerController {
